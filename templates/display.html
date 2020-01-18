@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Display page</title>
+<h2>INFORMATION DISPLAY	</h2>
+<style>
+body {
+  background-color: linen;
+  background-image:url(https://cemsites.com/wp-content/uploads/2018/12/Cloud-Computing-blog-10-11-2018.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container{
+	margin-left:40%; 
+	margin-top:10%;
+}
+.downloadbtn{
+	background-color: #003399;
+	color: white;
+	border:none;
+	cursor: pointer;
+	padding: 4px 10px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	border-radius:10px;
+	margin-top: -10%;
+}
+label{
+	display: inline-block;
+	width:380px;
+}
+h2{
+	color: white;
+	text-align:center;
+}
+</style>
+</head>
+<body>
+<form action="display" method="post">
+
+  <div class="container">
+    	<p>
+	<label for="fname"><b>First Name: {{firstName}}</b></label>
+	</p>
+	
+	<p>
+    	<label for="lname"><b>Last Name : {{lastName}}</b></label>
+	</p>
+	
+	<p>
+    	<label for="email"><b>Email ID: {{mail}}</b></label>
+	</p>
+	<p>
+	
+	<p>
+        <label for="count"><b>Word count of uploaded file: {{count}}</b></label>
+        </p>
+        <p>
+	
+		
+	 <button class="downloadbtn" type="button" onclick="window.location='/files/{{fileName}}';" style = "margin-left: 2%;">Download resume</button>
+	 <button class="downloadbtn" type="button" onclick="window.location='/';" style="margin-left:10px">Logout</button>
+  
+</form>
+</body>
+</html>

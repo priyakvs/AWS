@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Login Page</title>
+<h3>LOGIN PAGE</h3>
+<style>
+body {
+  background-color: linen;
+  background-image:url(https://assets.entrepreneur.com/content/3x2/2000/20161202171418-GettyImages-502462262.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container{
+	margin-left:40%; 
+	margin-top:9%;
+}
+.loginbtn{
+	background-color: #003399;
+	color: white;
+	border:none;
+	cursor: pointer;
+	padding: 5px 10px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	border-radius:10px;
+}
+.registerbtn{
+	margin-top: 10.5%;
+	margin-left: 39.5%;
+}
+.successmsg{
+	margin-left: -20px;
+	color: #003399;
+}
+.errormsg{
+	color:red;
+	margin-left:7%;
+}
+h3{
+	color: #003399;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<form action="." method="post">
+
+  	<div class="container">
+
+ 	<p>
+	<label for="uname"><b>Username:</b></label>
+    	<input type="text" placeholder="Enter EmailID" name="uname" required>
+	</p>
+	
+	<p>
+    	<label for="pwd"><b>Password :</b></label>
+    	<input type="password" placeholder="Enter Password" name="pwd" required>
+	</p>
+	
+    	{%if pwd == 'false'%}
+    	<p class = "errormsg"><b>Incorrect Password!</b></p>
+    	{%elif uname == 'false'%}
+    	<p class="errormsg"><b>Username not registered!</b></p>
+	{% elif request.args.get('success') == 'true' %}
+        <p class = "successmsg"><b>Registration Sucess! Please login to continue.</b></p>
+	{% else %}
+	<p> &nbsp; </p>
+	{% endif %}
+		
+    	<button class="loginbtn" type="submit" style="margin-left:12%">Login</button>
+	<div class = "registerbtn">
+	<label><b> New User? </b></label>
+	<button class="loginbtn" type="button" onclick="window.location='/register';" >Register</button>
+  	</div>
+	</div>
+  
+</form>
+</body>
+</html>

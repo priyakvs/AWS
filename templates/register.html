@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Registration Page</title>
+<h2>REGISTRATION PAGE</h2>
+<style>
+body {
+  background-color: linen;
+  background-image:url(https://www.ge.com/digital/sites/default/files/styles/cards_500x250/public/2018-10/header-predix-cloud-3200x1404.jpg);
+  background-size: cover;
+}
+.container{
+	margin-left:15%;
+	margin-top:11%;
+}
+.registerbtn{
+	background-color: #003399;
+	color: white;
+	border:none;
+	cursor: pointer;
+	padding: 5px 10px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	border-radius:10px;
+}
+label{
+	display: inline-block;
+	width:150px;
+}
+h2{
+	color: #003399;
+	text-align: center;
+}
+.errormsg{
+	color:red;
+}
+</style>
+</head>
+<body>
+<form action="register" method="post" enctype="multipart/form-data" >
+
+  <div class="container">
+   	 <p>
+    	<label for="fname"><b>First Name:</b></label>
+    	<input type="text" placeholder="Enter FirstName" name="fname" required> 
+    	</p>
+		
+    	<p>
+    	<label for="lname"><b>Last Name :</b></label>
+    	<input type="text" placeholder="Enter LastName" name="lname" required>
+    	</p>
+	
+    	<p>
+    	<label for="pwd"><b>Password :</b></label>
+    	<input type="password" placeholder="Enter Password" name="pwd" required>
+    	</p>
+
+    	<p>
+    	<label for="email"><b>Email ID:</b></label>
+    	<input type="email" placeholder="Enter Email" name="email" required>
+    	</p>
+    	
+	{% if exist == 'true' %}
+	<p class="errormsg"><b>Username/Email already exists!</b></p>
+	{% endif %}
+	
+    	<p>
+    	<label for="file"><b>Upload Resume :</b></label>
+    	<input type="file" name="file" accept = "application/pdf" required >
+    	</p>
+	<h5 style="margin-left:14.5%;margin-top:-1%">Extension: .pdf only</h5>
+	
+	{% if ext == 'false' %}
+        <p class="errormsg"><b>File format not supported. Please upload .pdf file!</b></p>
+        {% endif %}
+	
+    	<button class="registerbtn" type="submit" style="margin-left:10%">Register</button>
+
+  </div>
+  
+</form>
+</body>
+</html>
